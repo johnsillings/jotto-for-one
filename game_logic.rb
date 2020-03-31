@@ -4,8 +4,8 @@ class Array
 	def difference(other)
 	 	copy = dup
 		other.each do |e|
-				index = copy.rindex(e)
-				copy.delete_at(index) if index
+			index = copy.rindex(e)
+			copy.delete_at(index) if index
 		end
 		copy
 	end
