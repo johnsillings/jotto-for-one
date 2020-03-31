@@ -1,15 +1,15 @@
 require_relative 'player.rb'
 
 class Array
-	 def difference(other)
-		copy = dup
-	    other.each do |e|
-	      index = copy.rindex(e)
-	      copy.delete_at(index) if index
-	    end
-	    copy
-	  end
+	def difference(other)
+	 	copy = dup
+		other.each do |e|
+				index = copy.rindex(e)
+				copy.delete_at(index) if index
+		end
+		copy
 	end
+end
 
 class Game
 	attr_accessor :player, :secret_word
@@ -44,7 +44,7 @@ class Game
 	def player_guess
 		@guess = gets.chomp.upcase
 		@secret_word = @secret_word
-		
+
 		if @guess.length == 5
 			puts "You guessed #{@guess}."
 			compare_guess_and_secret(@guess)
