@@ -24,12 +24,17 @@ class Game
 
 	def setup
 		@player = Player.new
+		@dictionary = load_dictionary
 		@secret_word = create_secret_word
 	end
 
+	def load_dictionary
+		@dictionary = File.open("dictionary.txt", "r").read.split("\n")
+	end
+
 	def create_secret_word
-		a = File.open("dictionary.txt", "r").read.split("\n")
-		@secret_word = a.sample.upcase
+		dictionary = @dictionary
+		@secret_word = dictionary.sample.upcase
 		puts "The computer has selected a secret word. Game on!"
 		puts "The secret word is #{@secret_word}."
 		@secret_word
@@ -45,11 +50,17 @@ class Game
 		@guess = gets.chomp.upcase
 		@secret_word = @secret_word
 
-		if @guess.length == 5
+		if real_word(@guess) && valid_length(@guess)
 			puts "You guessed #{@guess}."
 			compare_guess_and_secret(@guess)
-		else
+		elsif !valid_length(@guess)
 			puts "You can only guess 5-letter words, bucko."
+			player_guess
+		elsif !real_word(@guess)
+			puts "That's not a real word. Try again."
+			player_guess
+		else
+			puts "There was a problem with your guess. Try again."
 			player_guess
 		end
 	end
@@ -63,6 +74,14 @@ class Game
 		puts "There are #{@common_letters_count} letters in common."
 		# puts "The letters that aren't in common are #{@different_letters}."
 
+	end
+
+	def real_word(guess)
+		@dictionary.include?(guess.downcase)
+	end
+
+	def valid_length(guess)
+		guess.length == 5
 	end
 
 	def display_secret_word
