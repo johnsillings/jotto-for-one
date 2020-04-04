@@ -37,7 +37,8 @@ class Game
 	def create_secret_word
 		@secret_word = @common_words.sample
 		puts "The computer has selected a secret word. Game on!"
-		puts "The secret word is #{@secret_word}."
+		# for testing purposes:
+		# puts "The secret word is #{@secret_word}."
 		@secret_word
 	end
 
@@ -73,7 +74,6 @@ class Game
 		@different_letters_count = @guess_array.difference(@secret_array).size
 		@common_letters_count = (5 - @different_letters_count)
 		puts "There are #{@common_letters_count} letters in common."
-		# puts "The letters that aren't in common are #{@different_letters}."
 
 	end
 
@@ -83,10 +83,6 @@ class Game
 
 	def valid_length(guess)
 		guess.length == 5
-	end
-
-	def display_secret_word
-		puts "The secret_word was #{@secret_word}."
 	end
 
 	def play
