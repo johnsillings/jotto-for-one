@@ -29,12 +29,12 @@ class Game
 	end
 
 	def load_dictionary
-		@dictionary = File.open("dictionary.txt", "r").read.split("\n")
+		@dictionary = File.open("words.txt", "r").read.split(" ")
 	end
 
 	def create_secret_word
 		dictionary = @dictionary
-		@secret_word = dictionary.sample.upcase
+		@secret_word = dictionary.sample
 		puts "The computer has selected a secret word. Game on!"
 		puts "The secret word is #{@secret_word}."
 		@secret_word
@@ -77,7 +77,7 @@ class Game
 	end
 
 	def real_word(guess)
-		@dictionary.include?(guess.downcase)
+		@dictionary.include?(guess)
 	end
 
 	def valid_length(guess)
