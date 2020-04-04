@@ -9,8 +9,8 @@ class Player
 	def get_name
 		puts "Welcome to 1-player Jotto! What's your name?"
 		@name = gets.chomp
-		puts ""
 		puts "Hey, #{@name}. Cool name."
+		puts ""
 		@name
 	end
 
