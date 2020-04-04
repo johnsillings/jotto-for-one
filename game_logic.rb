@@ -65,6 +65,7 @@ class Game
 			puts "There was a problem with your guess. Try again."
 			player_guess
 		end
+		puts ""
 	end
 
 	def compare_guess_and_secret(guess)
@@ -96,6 +97,7 @@ class Game
 			turn
 		end
 		puts "You got it! The word was #{@secret_word}."
+		puts "You beat the computer in #{@turn_counter.to_s} turns. Well done!"
 	end
 
 end
