@@ -35,8 +35,7 @@ class Game
 	end
 
 	def create_secret_word
-		common_words = @common_words
-		@secret_word = common_words.sample
+		@secret_word = @common_words.sample
 		puts "The computer has selected a secret word. Game on!"
 		puts "The secret word is #{@secret_word}."
 		@secret_word
