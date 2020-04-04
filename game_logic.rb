@@ -19,22 +19,24 @@ class Game
 		@secret_word = nil
 		@guess = nil
 		@dictionary = []
+		@common_words = []
 		@turn_counter = 0
 	end
 
 	def setup
 		@player = Player.new
-		@dictionary = load_dictionary
-		@secret_word = create_secret_word
+		load_dictionaries
+		create_secret_word
 	end
 
-	def load_dictionary
+	def load_dictionaries
 		@dictionary = File.open("words.txt", "r").read.split(" ")
+		@common_words = File.open("common-words.txt", "r").read.split(" ")
 	end
 
 	def create_secret_word
-		dictionary = @dictionary
-		@secret_word = dictionary.sample
+		common_words = @common_words
+		@secret_word = common_words.sample
 		puts "The computer has selected a secret word. Game on!"
 		puts "The secret word is #{@secret_word}."
 		@secret_word
