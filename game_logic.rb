@@ -49,7 +49,6 @@ class Game
 
 	def player_guess
 		@guess = gets.chomp.upcase
-		@secret_word = @secret_word
 
 		if real_word(@guess) && valid_length(@guess)
 			puts "You guessed #{@guess}."
