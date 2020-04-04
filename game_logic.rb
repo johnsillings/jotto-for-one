@@ -70,8 +70,8 @@ class Game
 		@guess_array = guess.chars
 		@secret_array = @secret_word.chars
 
-		@different_letters = @guess_array.difference(@secret_array)
-		@common_letters_count = (5 - @different_letters.size)
+		@different_letters_count = @guess_array.difference(@secret_array).size
+		@common_letters_count = (5 - @different_letters_count)
 		puts "There are #{@common_letters_count} letters in common."
 		# puts "The letters that aren't in common are #{@different_letters}."
 
