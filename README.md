@@ -8,7 +8,7 @@ A fun little logicky word game for the command line.
 
 ## The rules of Jotto for One (adapted from Wikipedia)
 
-The computer will randomly select a 5-letter word from the dictionary as its secret word. (It will be a real word, and it won't be a proper noun.)
+The computer will randomly select a 5-letter word from the dictionary as its secret word. It will be a real word, and it won't be a proper noun.
 
 You take turns guessing 5-letter words. For every guess, the computer will tell you how many letters in your guess match unique letters in the secret word.
 
